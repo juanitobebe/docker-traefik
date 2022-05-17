@@ -177,11 +177,11 @@ services:
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
       # HTTP Routers
       - "traefik.http.routers.traefik-rtr.entrypoints=https"
-      - "traefik.http.routers.traefik-rtr.rule=Host(`traefikh.$DOMAINNAME0`)"
+      - "traefik.http.routers.traefik-rtr.rule=Host(`$SUBDOMAIN.$DOMAINNAME0`)"
       ## Services - API
       - "traefik.http.routers.traefik-rtr.service=api@internal"
       ## Healthcheck/ping
-      #- "traefik.http.routers.ping.rule=Host(`traefik.$DOMAINNAME0`) && Path(`/ping`)"
+      #- "traefik.http.routers.ping.rule=Host(`$SUBDOMAIN.$DOMAINNAME0`) && Path(`/ping`)"
       #- "traefik.http.routers.ping.tls=true"
       #- "traefik.http.routers.ping.service=ping@internal"
       ## Middlewares
